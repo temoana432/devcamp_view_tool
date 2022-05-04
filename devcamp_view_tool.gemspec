@@ -1,39 +1,27 @@
-# frozen_string_literal: true
-
-require_relative "lib/devcamp_view_tool/version"
+# coding: utf-8
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'devcamp_view_tool/version'
 
 Gem::Specification.new do |spec|
-  spec.name = "devcamp_view_tool"
-  spec.version = DevcampViewTool::VERSION
-  spec.authors = ["temoana432"]
-  spec.email = ["SteveClarke40@hotmail.com"]
+  spec.name          = "devcamp_view_tool"
+  spec.version       = DevcampViewTool::VERSION
+  spec.authors       = ["Jordan Hudgens"]
+  spec.email         = ["jordan@wow.com"]
 
-  spec.summary = %q{Various view specific methods for applications that I use}
-  spec.description = %q{Provides generated HTML for Rails applications}
-  spec.homepage = "https://temoana432.com"
-  spec.license = "MIT"
-  spec.required_ruby_version = ">= 2.4.0"
+  spec.summary       = %q{Various view specific methods for applications I use.}
+  spec.description   = %q{Provides generated HTML data for Rails applications.}
+  spec.homepage      = "https://devcamp.com"
+  spec.license       = "MIT"
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
-
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-  spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
-
-  # Specify which files should be added to the gem when it is released.
-  # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-  spec.files = Dir.chdir(__dir__) do
-    `git ls-files -z`.split("\x0").reject do |f|
-      (f == __FILE__) || f.match(%r{\A(?:(?:bin|test|spec|features)/|\.(?:git|travis|circleci)|appveyor)})
-    end
+  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
+    f.match(%r{^(test|spec|features)/})
   end
-  spec.bindir = "exe"
-  spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
+  spec.bindir        = "exe"
+  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  # Uncomment to register a new dependency of your gem
-  # spec.add_dependency "example-gem", "~> 1.0"
-
-  # For more information and examples about making a new gem, check out our
-  # guide at: https://bundler.io/guides/creating_gem.html
+  spec.add_development_dependency "bundler", "~> 1.13"
+  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rspec", "~> 3.0"
 end
